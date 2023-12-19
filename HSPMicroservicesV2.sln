@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSPMicroservicesV2", "HSPMi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGatewayOcelot", "ApiGatewayOcelot\ApiGatewayOcelot.csproj", "{D1202AD3-FEF7-4F96-818B-B62EB81740CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicePriseDeRendezvous", "ServicePriseDeRendezvous\ServicePriseDeRendezvous.csproj", "{3966869D-11C1-41E3-A923-0E097F42251E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D1202AD3-FEF7-4F96-818B-B62EB81740CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1202AD3-FEF7-4F96-818B-B62EB81740CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1202AD3-FEF7-4F96-818B-B62EB81740CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3966869D-11C1-41E3-A923-0E097F42251E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3966869D-11C1-41E3-A923-0E097F42251E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3966869D-11C1-41E3-A923-0E097F42251E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3966869D-11C1-41E3-A923-0E097F42251E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
