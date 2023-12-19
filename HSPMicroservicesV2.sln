@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGatewayOcelot", "ApiGate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicePriseDeRendezvous", "ServicePriseDeRendezvous\ServicePriseDeRendezvous.csproj", "{3966869D-11C1-41E3-A923-0E097F42251E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceAgendasDesPraticiens", "ServiceAgendasDesPraticiens\ServiceAgendasDesPraticiens.csproj", "{FAEA0B22-301D-411D-AD6B-4D30908BA1CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3966869D-11C1-41E3-A923-0E097F42251E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3966869D-11C1-41E3-A923-0E097F42251E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3966869D-11C1-41E3-A923-0E097F42251E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAEA0B22-301D-411D-AD6B-4D30908BA1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEA0B22-301D-411D-AD6B-4D30908BA1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEA0B22-301D-411D-AD6B-4D30908BA1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEA0B22-301D-411D-AD6B-4D30908BA1CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
