@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using ServiceAgendasDesPraticiens.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Base de données
+var connectionString = builder.Configuration.GetConnectionString("CalendarConnection");
+builder.Services.AddDbContext<HSPCalendarDbContext>(options =>
+options.UseSqlServer(connectionString));
 
 // Add services to the container.
 

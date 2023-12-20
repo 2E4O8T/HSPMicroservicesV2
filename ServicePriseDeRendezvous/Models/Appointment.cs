@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Metadata;
 
 namespace ServicePriseDeRendezvous.Models
 {
