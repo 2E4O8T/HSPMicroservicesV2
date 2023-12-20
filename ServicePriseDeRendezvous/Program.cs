@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using ServicePriseDeRendezvous.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Base de données
+var connectionString = builder.Configuration.GetConnectionString("AppointmentConnection");
+builder.Services.AddDbContext<HSPAppointmentDbContext>(options =>
+options.UseSqlServer(connectionString));
 
 // Add services to the container.
 
