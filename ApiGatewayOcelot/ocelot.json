@@ -1,104 +1,136 @@
 {
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7207"
-  },
+  //"GlobalConfiguration": {
+  //  "BaseUrl": "https://localhost:5005"
+  //},
   "Routes": [
+    // Ajout rdv pour test Identity Server 6
     {
-      "UpstreamPathTemplate": "/gateway/appointments",
+      "UpstreamPathTemplate": "/gateway/rdvs",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/appointments",
+      "DownstreamPathTemplate": "/api/rdvs",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7224
+          "Port": 6002
         }
-      ]
-    },
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "IdentityApiKey",
+        "AllowedScopes": []
+        }
+      },
     {
-      "UpstreamPathTemplate": "/gateway/appointments{id}",
+      "UpstreamPathTemplate": "/gateway/rdv/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
-      "DownstreamPathTemplate": "/api/appointments{id}",
+      "DownstreamPathTemplate": "/api/rdv{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7224
+          "Port": 6002
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "IdentityApiKey",
+        "AllowedScopes": []
+      }
     },
-    {
-      "UpstreamPathTemplate": "/gateway/patients",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/patients",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7224
-        }
-      ]
-    },
-    {
-      "UpstreamPathTemplate": "/gateway/patients{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
-      "DownstreamPathTemplate": "/api/patients{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7224
-        }
-      ]
-    },
-    {
-      "UpstreamPathTemplate": "/gateway/consultants",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/consultants",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7035
-        }
-      ]
-    },
-    {
-      "UpstreamPathTemplate": "/gateway/consultants{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
-      "DownstreamPathTemplate": "/api/consultants{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7035
-        }
-      ]
-    },
-    {
-      "UpstreamPathTemplate": "/gateway/consultantcalendars",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/consultantcalendars",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7035
-        }
-      ]
-    },
-    {
-      "UpstreamPathTemplate": "/gateway/consultantcalendars{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
-      "DownstreamPathTemplate": "/api/consultantcalendars{id}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7035
-        }
-      ]
-    }
-
+      {
+        "UpstreamPathTemplate": "/gateway/appointments",
+        "UpstreamHttpMethod": [ "Get" ],
+        "DownstreamPathTemplate": "/api/appointments",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6002
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/appointments{id}",
+        "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+        "DownstreamPathTemplate": "/api/appointments{id}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6002
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/patients",
+        "UpstreamHttpMethod": [ "Get" ],
+        "DownstreamPathTemplate": "/api/patients",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6002
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/patients{id}",
+        "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+        "DownstreamPathTemplate": "/api/patients{id}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6002
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/consultants",
+        "UpstreamHttpMethod": [ "Get" ],
+        "DownstreamPathTemplate": "/api/consultants",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6001
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/consultants{id}",
+        "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+        "DownstreamPathTemplate": "/api/consultants{id}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6001
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/consultantcalendars",
+        "UpstreamHttpMethod": [ "Get" ],
+        "DownstreamPathTemplate": "/api/consultantcalendars",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6001
+          }
+        ]
+      },
+      {
+        "UpstreamPathTemplate": "/gateway/consultantcalendars{id}",
+        "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+        "DownstreamPathTemplate": "/api/consultantcalendars{id}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "localhost",
+            "Port": 6001
+          }
+        ]
+      }
   ]
 }
