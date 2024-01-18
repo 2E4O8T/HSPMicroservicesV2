@@ -16,7 +16,7 @@ using HSPMicroservicesV2.Models;
 
 namespace HSPMicroservicesV2.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class RdvsController : Controller
     {
         private readonly IRdvApiService _rdvApiService;
@@ -27,7 +27,7 @@ namespace HSPMicroservicesV2.Controllers
         }
 
         // Only Admin
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> OnlyAdmin()
         {
             var userInfo = await _rdvApiService.GetUserInfo();

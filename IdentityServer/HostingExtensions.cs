@@ -1,4 +1,6 @@
 using Duende.IdentityServer.Test;
+using identityserver;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Serilog;
 
 namespace IdentityServer;
@@ -10,7 +12,25 @@ internal static class HostingExtensions
         // uncomment if you want to add a UI
         //builder.Services.AddRazorPages();
 
-        builder.Services.AddControllersWithViews();
+        // Ajout modification - Commentaire sur builder.Services.AddControllersWithViews();
+        // Ajout modification - Razor Pages
+        // builder.Services.AddControllersWithViews();
+        builder.Services.AddRazorPages();
+
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Pages/Account/Login"; 
+            });
+
+        builder.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy("RequireAuthenticatedUser", policy =>
+            {
+                policy.RequireAuthenticatedUser();
+            });
+        });
+        // Fin Ajout
 
         builder.Services.AddIdentityServer(options =>
         {
@@ -20,8 +40,8 @@ internal static class HostingExtensions
             .AddInMemoryClients(Config.Clients)
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddTestUsers(Config.TestUsers)
-            //.AddTestUsers(TestUsers.Users)
+            //.AddTestUsers(Config.TestUsers)
+            .AddTestUsers(TestUsers.Users)
             .AddDeveloperSigningCredential();
 
         return builder.Build();
@@ -44,13 +64,23 @@ internal static class HostingExtensions
 
         // uncomment if you want to add a UI
         app.UseAuthorization();
-        //app.MapRazorPages().RequireAuthorization();
+
+        // Ajout Suppression commentaire
+        app.MapRazorPages().RequireAuthorization();
 
         // Ajout
+        //app.UseEndpoints(endpoints =>
+        //{
+        //    endpoints.MapDefaultControllerRoute();
+        //});
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapDefaultControllerRoute();
+            //endpoints.MapControllerRoute(
+            //    name: "default",
+            //    pattern: "{controller=Home}/{action=Index}/{id?}");
+            endpoints.MapRazorPages();
         });
+
 
         return app;
     }

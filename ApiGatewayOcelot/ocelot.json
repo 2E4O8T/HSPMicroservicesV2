@@ -5,21 +5,21 @@
   "Routes": [
     // Ajout rdv pour test Identity Server 6
     {
-      "UpstreamPathTemplate": "/gateway/rdvs",
+      "UpstreamPathTemplate": "/rdvs",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/rdvs",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 6002
+          "Port": "6002"
         }
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "IdentityApiKey",
         "AllowedScopes": []
-        }
-      },
+      }
+    },
     {
       "UpstreamPathTemplate": "/gateway/rdv/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],

@@ -18,6 +18,8 @@ builder.Services.AddAuthentication()
         };
     });
 
+builder.Services.AddOcelot();
+
 // Add services to the container.
 
 // Ajout commentaires sur les 3 builders
@@ -27,8 +29,8 @@ builder.Services.AddAuthentication()
 //builder.Services.AddSwaggerGen();
 
 // Add ocelot configuration file and injecting ocelot service
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
-builder.Services.AddOcelot(builder.Configuration);
+//builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+//builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
 

@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using HSPMicroservicesV2.ApiServices;
 using Microsoft.Net.Http.Headers;
 using HSPMicroservicesV2.HttpHandlers;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,6 +72,19 @@ builder.Services.AddHttpClient("IDPClient", client =>
     client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
 });
 
+// Ajout du bloc
+builder.Services.AddMvc()
+        .AddRazorPagesOptions(options =>
+        {
+
+            options.Conventions.AuthorizeFolder("/Pages/Account/");
+            options.Conventions.AuthorizePage("/Pages/Account/Login");
+            options.Conventions.AuthorizePage("/Pages/Account/Logout");
+            options.Conventions.AuthorizePage("/Details");
+
+        });
+
+
 builder.Services.AddHttpContextAccessor();
 
 
@@ -89,10 +103,21 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Ajout : app.UseAuthentication();
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+// Modifiucation bloc
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+
 
 app.Run();

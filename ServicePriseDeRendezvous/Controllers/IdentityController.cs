@@ -5,7 +5,7 @@ namespace ServicePriseDeRendezvous.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class IdentityController : ControllerBase
     {
         [HttpGet]

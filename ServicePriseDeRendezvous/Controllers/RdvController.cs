@@ -8,7 +8,7 @@ namespace ServicePriseDeRendezvous.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize("ClientIdPolicy")]
+    [Authorize("ClientIdPolicy")]
     public class RdvsController : ControllerBase
     {
         private readonly RdvsApiContext _context;

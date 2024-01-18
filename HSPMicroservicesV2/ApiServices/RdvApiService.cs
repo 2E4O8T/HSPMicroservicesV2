@@ -59,7 +59,7 @@ namespace HSPMicroservicesV2.ApiServices
 
             // SEction 11
             // var request = new HttpRequestMessage(HttpMethod.Get, "/api/rdvs/");
-            var request = new HttpRequestMessage(HttpMethod.Get, "/gateway/rdvs");
+            var request = new HttpRequestMessage(HttpMethod.Get, "/rdvs");
 
             var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
                             .ConfigureAwait(false);
